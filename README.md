@@ -331,7 +331,8 @@ curl https://your-worker.workers.dev/usage.json?token=ADMIN_TOKEN
 | `/api/login` | POST | 管理员登录接口 | 无 |
 | `/api/add` | POST | 添加 CF 账号 | Cookie 认证 |
 | `/api/del` | POST | 删除 CF 账号 | Cookie 认证 |
-| `/api/check?id=账号ID` | GET/POST | 检查单个账号免费额度用量；未超过刷新阈值时返回历史数据 | Cookie 认证 |
+| `/api/check?id=账号ID` | GET | 汇总更新时由 `/usage.json` 内部自调用；未超过刷新阈值时返回历史数据 | 内部 Token |
+| `/api/check?id=账号ID` | POST | 管理员手动检查单个账号免费额度用量；未超过刷新阈值时返回历史数据 | Cookie 认证 |
 | `/admin/config.json` | GET | 获取账号配置列表 | Cookie 认证 |
 | `/admin/usage.json` | GET | 获取最新汇总使用数据 | Cookie 认证 |
 | `/usage.json` | GET | 公开的使用数据接口 | Token 参数 |
